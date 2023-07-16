@@ -1,0 +1,26 @@
+<div id="<%= dom_id progress_card %>">
+  <p>
+    <strong>Exam name:</strong>
+    <%= progress_card.exam_name %>
+  </p>
+
+  <p>
+    <strong>Declaration:</strong>
+    <%= progress_card.declaration %>
+  </p>
+
+</div>
+
+
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Marks</th>
+  </tr>
+  <% progress_card.exam_evaluations.each do |exam_evaluation| %>
+  <tr>
+    <td><%= exam_evaluation.course.name %></td>
+    <td><%= exam_evaluation.marks %></td>
+  </tr>
+  <% end %>
+</table>

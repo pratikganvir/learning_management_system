@@ -1,0 +1,26 @@
+<%= form_with(model: @batch, url: create_courses_school_batch_path(@school, @batch)) do |form| %>
+  <% if @batch.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@batch.errors.count, "error") %> prohibited this batch from being saved:</h2>
+
+      <ul>
+        <% @batch.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>Select Courses</p>
+
+  <% @courses.each do |course| %>
+    <div>
+        <%= label_tag course.name %>
+        <%= form.check_box :course_id, {multiple: true, style: "display: block"}, course.id %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit "Add Courses" %>
+  </div>
+<% end %>

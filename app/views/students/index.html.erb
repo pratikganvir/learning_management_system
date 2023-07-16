@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Students</h1>
+
+<div id="students">
+  <% @students.each do |student| %>
+    <%= render student %>
+    <p>
+      <%= link_to "Edit", edit_school_student_path(@school, @student) %>
+    </p>
+    <p>
+      <%= link_to "Manage Progress Cards", school_student_progress_cards_path(@school,student) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New student", new_school_student_path(@school) %>

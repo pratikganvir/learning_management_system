@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<div id="courses">
+  <% @courses.each do |course| %>
+    <%= render course %>
+    <p>
+      <%= link_to "Show this course", school_course_path(@school, course) %>
+    </p>
+  <% end %>
+</div>
+
+<% if params[:batch_id] %>
+  <%= link_to "Add courses", add_courses_school_batch_path(@school,@batch) %>
+<% else %>
+  <%= link_to "New course", new_school_course_path(@school) %>
+<% end %>

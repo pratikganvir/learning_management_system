@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @exam_evaluation %>
+
+<div>
+  <%= link_to "Edit this exam evaluation", edit_exam_evaluation_path(@exam_evaluation) %> |
+  <%= link_to "Back to exam evaluations", exam_evaluations_path %>
+
+  <%= button_to "Destroy this exam evaluation", @exam_evaluation, method: :delete %>
+</div>

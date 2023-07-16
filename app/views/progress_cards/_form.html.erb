@@ -1,0 +1,35 @@
+<%= form_with(model: progress_card, url: school_student_progress_cards_path(@school,@student)) do |form| %>
+  <% if progress_card.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(progress_card.errors.count, "error") %> prohibited this progress_card from being saved:</h2>
+
+      <ul>
+        <% progress_card.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :exam_name, style: "display: block" %>
+    <%= form.text_field :exam_name %>
+  </div>
+
+  <div>
+    <%= form.label :declaration, style: "display: block" %>
+    <%= form.select :declaration, ProgressCard.declarations.keys %>
+  </div>
+
+  <%= form.fields_for :exam_evaluations do |exam_evaluation| %>
+    <div>
+      <%= exam_evaluation.label get_course_label(exam_evaluation.object.course_id), style: "display: block" %>
+      <%= exam_evaluation.hidden_field :course_id, value: exam_evaluation.object.course_id %>
+      <%= exam_evaluation.number_field :marks %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

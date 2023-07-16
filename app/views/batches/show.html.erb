@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @batch %>
+
+<div>
+  <%= link_to "Edit this batch", edit_school_batch_path(@school, @batch) %> |
+  <%= link_to "Back to batches", school_batches_path(@school) %>
+
+  <%= button_to "Destroy this batch", school_batch_path(@school,@batch), method: :delete %>
+</div>

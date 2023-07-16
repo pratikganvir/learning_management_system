@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Batches</h1>
+
+<div id="batches">
+  <% @batches.each do |batch| %>
+    <%= render batch %>
+    <p>
+      <%= link_to "Edit this batch", edit_school_batch_path(@school, batch) %> 
+    </p>
+    <p>
+      <%= link_to "Manage Courses", school_courses_path(school_id: @school.id,batch_id: batch.id) %>
+    </p>
+    <p>
+      
+      <%= link_to "Enrollment Requests", school_batch_enrollments_path(@school,batch) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New batch", new_school_batch_path(@school) %>

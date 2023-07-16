@@ -1,0 +1,10 @@
+<h1>Editing progress card</h1>
+
+<%= render "form", progress_card: @progress_card %>
+
+<br>
+
+<div>
+  <%= link_to "Show this progress card", school_student_progress_card_path(@school,@student,@progress_card) %> |
+  <%= link_to "Back to progress cards", school_student_progress_cards_path(@school,@student) %>
+</div>

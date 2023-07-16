@@ -1,0 +1,18 @@
+<h1>Classmates</h1>
+
+<table>
+  <thead>
+  <tr>
+    <td>Classmate Name</td>
+    <td>Action</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @classmates.each do |student| %>
+    <tr>
+        <td><%= student.full_name %></td>
+        <td><%= link_to "Progress Card", school_student_progress_cards_path(@school,@student) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

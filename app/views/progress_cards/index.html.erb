@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Progress cards</h1>
+
+
+<div id="progress_cards">
+  <% @progress_cards.each do |progress_card| %>
+    <%= render progress_card %>
+    <p>
+      <% if current_login.admin? && current_login.loginable.school_admin? %>
+        <%= link_to "Show this progress card", school_student_progress_card_path(@school,@student,progress_card)
+       %>
+       <% end %>
+    </p>
+  <% end %>
+</div>
+
+<% if current_login.admin? && current_login.loginable.school_admin? %>
+  <% if @student.current_batch %>
+    <%= link_to "New progress card", new_school_student_progress_card_path(@school,@student) %>
+  <% else %>
+    Student not enrolled in any batch
+  <% end %>
+<% end %>

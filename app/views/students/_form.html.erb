@@ -1,0 +1,59 @@
+<%= form_with(model: student, url: school_students_path(@school)) do |form| %>
+  <% if student.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :middle_name, style: "display: block" %>
+    <%= form.text_field :middle_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, style: "display: block" %>
+    <%= form.date_field :date_of_birth %>
+  </div>
+
+  <div>
+    <%= form.label :gender, style: "display: block" %>
+    <%= form.select :gender, Student.genders.keys %>
+  </div>
+
+  <%= form.fields_for :login do |login| %>
+    <div>
+      <%= login.label :email, style: "display: block" %>
+      <%= login.text_field :email %>
+    </div>
+
+    <div>
+      <%= login.label :password, style: "display: block" %>
+      <%= login.password_field :password %>
+    </div>
+
+    <div>
+      <%= login.label :password_confirmation, style: "display: block" %>
+      <%= login.password_field :password_confirmation %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

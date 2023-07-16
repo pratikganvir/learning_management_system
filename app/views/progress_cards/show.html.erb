@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @progress_card %>
+
+<div>
+  <%= link_to "Edit this progress card", edit_school_student_progress_card_path(@school,@student,@progress_card) %> |
+  <%= link_to "Back to progress cards", school_student_progress_cards_path(@school,@student) %>
+
+  <%= button_to "Destroy this progress card", school_student_progress_card_path(@school,@student,@progress_card), method: :delete %>
+</div>

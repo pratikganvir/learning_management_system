@@ -1,0 +1,30 @@
+<p style="color: green"><%= flash[:notice] %></p>
+
+<h1>Available Batches</h1>
+
+<table>
+  <tr>
+    <td>
+      Batch
+    </td>
+    <td>
+      Enrollment Status
+    </td>
+    <td>
+      Actions
+    </td>
+  </tr>
+
+  <% @batches.each do |batch| %>
+    <tr>
+      <td><%= batch.name %></td>
+      <td><%= @student.enrollment_request_status(batch.id).to_s.humanize %></td>
+      <td>
+        <% unless @student.enrollment_request_status(batch.id) %>
+          <%= button_to "Request Enrollment",  request_enrollment_school_student_path(school_id: @school.id, student_id: @student.id, batch_id: batch.id) %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
