@@ -5,7 +5,7 @@
 <div id="enrollments">
   <% @enrollments.each do |enrollment| %>
     <%= render enrollment %>
-    <% if enrollment.enrollment_action.nil? %>
+    <% if enrollment.requested? %>
       <p>
         <%= button_to "Approve", enrollment_verdict_school_batch_enrollment_url(school_id: @school.id,batch_id: @batch.id,id: enrollment.id, enrollment_action: 'approved') %>
         <%= button_to "Deny", enrollment_verdict_school_batch_enrollment_url(school_id: @school.id,batch_id: @batch.id,id: enrollment.id, enrollment_action: 'denied') %>
@@ -13,5 +13,3 @@
     <% end %>
   <% end %>
 </div>
-
-<%= link_to "New enrollment", new_school_batch_enrollment_path(@school,@batch) %>

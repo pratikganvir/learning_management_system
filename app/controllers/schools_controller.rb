@@ -4,6 +4,7 @@ class SchoolsController < ApplicationController
   # GET /schools or /schools.json
   def index
     @schools = School.all
+    authorize @schools
   end
 
   # GET /schools/1 or /schools/1.json
@@ -13,6 +14,7 @@ class SchoolsController < ApplicationController
   # GET /schools/new
   def new
     @school = School.new
+    authorize @school
   end
 
   # GET /schools/1/edit
@@ -61,6 +63,7 @@ class SchoolsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_school
       @school = School.find(params[:id])
+      authorize @school
     end
 
     # Only allow a list of trusted parameters through.

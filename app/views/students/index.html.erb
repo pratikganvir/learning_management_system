@@ -6,7 +6,7 @@
   <% @students.each do |student| %>
     <%= render student %>
     <p>
-      <%= link_to "Edit", edit_school_student_path(@school, @student) %>
+      <%= link_to "Edit", edit_school_student_path(@school, student) %>
     </p>
     <p>
       <%= link_to "Manage Progress Cards", school_student_progress_cards_path(@school,student) %>

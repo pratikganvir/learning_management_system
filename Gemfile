@@ -72,3 +72,9 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+gem 'pundit'
+
+group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+end

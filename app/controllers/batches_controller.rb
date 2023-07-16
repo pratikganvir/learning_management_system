@@ -6,6 +6,7 @@ class BatchesController < ApplicationController
   # GET /batches or /batches.json
   def index
     @batches = Batch.where(school_id: @school.id)
+    authorize @batches
   end
 
   # GET /batches/1 or /batches/1.json
@@ -80,6 +81,7 @@ class BatchesController < ApplicationController
 
     def set_batch
       @batch = Batch.find(params[:id])
+      authorize @batch
     end
 
     def batch_params

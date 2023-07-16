@@ -4,14 +4,17 @@ class AdminsController < ApplicationController
   # GET /admins or /admins.json
   def index
     @admins = Admin.where(admin_type: Admin.admin_types[:school_admin])
+    authorize @admins
   end
 
   # GET /admins/1 or /admins/1.json
   def show
+    authorize @admin
   end
 
   # GET /admins/new
   def new
+    authorize @admin
     @admin = Admin.new
     @admin.build_login
   end
@@ -24,6 +27,8 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     @admin.admin_type = Admin.admin_types['school_admin']
+
+    authorize @admin
 
     respond_to do |format|
       if @admin.save
@@ -38,6 +43,7 @@ class AdminsController < ApplicationController
 
   # PATCH/PUT /admins/1 or /admins/1.json
   def update
+    authorize @admin
     respond_to do |format|
       if @admin.update(admin_params)
         format.html { redirect_to admin_url(@admin), notice: "Admin was successfully updated." }
@@ -51,6 +57,7 @@ class AdminsController < ApplicationController
 
   # DELETE /admins/1 or /admins/1.json
   def destroy
+    authorize @admin
     @admin.destroy
 
     respond_to do |format|

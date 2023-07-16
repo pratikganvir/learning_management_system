@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
     else
       Course.where(school_id: @school.id)
     end
+    authorize @courses
   end
 
   # GET /courses/1 or /courses/1.json
@@ -20,6 +21,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    authorize @course
   end
 
   # GET /courses/1/edit
@@ -69,6 +71,7 @@ class CoursesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])
+      authorize @course
     end
 
     # Only allow a list of trusted parameters through.

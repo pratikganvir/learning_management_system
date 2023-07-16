@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   # GET /students or /students.json
   def index
     @students = @school.students
+    authorize @students
   end
 
   # GET /students/1 or /students/1.json
@@ -87,6 +88,7 @@ class StudentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])
+      authorize @student
     end
 
     # Only allow a list of trusted parameters through.
