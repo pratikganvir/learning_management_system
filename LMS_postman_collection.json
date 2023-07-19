@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "8f28062d-0f58-4663-a3d8-9ca924c836d1",
+		"name": "LMS System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "190668"
+	},
+	"item": [
+		{
+			"name": "School List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/schools.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create School Admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"School\",\n    \"last_name\": \"Admin\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/admins.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admins.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create School",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Test 1232\",\n    \"address\":\"Test\",\n    \"contact_number\":\"1111111111\",\n    \"email\":\"test@lims.com\",\n    \"admin_id\":11\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schools.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Batch",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Winter 2027\",\n    \"start_date\":\"2023-07-04\",\n    \"end_date\":\"2023-07-28\",\n    \"status\": \"enrollment_open\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schools/{{school_id}}/batches.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id}}",
+						"batches.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\":\"Test\",\n    \"middle_name\":\"S\",\n    \"last_name\":\"Student\",\n    \"date_of_birth\":\"2011-01-05\",\n    \"gender\":\"Male\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schools/{{school_id}}/students.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id}}",
+						"students.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Enrollment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"batch_id\": \"{{batch_id}}\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schools/{{school_id}}/students/{{student_id}}/request_enrollment.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id}}",
+						"students",
+						"{{student_id}}",
+						"request_enrollment.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve Enrollment Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"enrollment_action\": \"denied\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schools/{{school_id}}/batches/{{batch_id}}/enrollments/{{enrollment_id}}/enrollment_verdict.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id}}",
+						"batches",
+						"{{batch_id}}",
+						"enrollments",
+						"{{enrollment_id}}",
+						"enrollment_verdict.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update School",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "admin123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Test 12346\",\n    \"address\":\"Test\",\n    \"contact_number\":\"1111111111\",\n    \"email\":\"test@lims.com\",\n    \"admin_id\":11\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schools/{{school_id}}.json",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id}}.json"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "school_admin_id",
+			"value": "11",
+			"type": "string"
+		},
+		{
+			"key": "school_id",
+			"value": "6",
+			"type": "string"
+		},
+		{
+			"key": "batch_id",
+			"value": "13",
+			"type": "string"
+		},
+		{
+			"key": "student_id",
+			"value": "9",
+			"type": "string"
+		},
+		{
+			"key": "enrollment_id",
+			"value": "22",
+			"type": "string"
+		}
+	]
+}

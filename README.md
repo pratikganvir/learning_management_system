@@ -36,5 +36,24 @@ This creates 2 default users in system.
 
 ## Screenshots
 
-### Login Screen
+## Login Screen
 ![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/login_page.png)
+
+## Admin Dashboard
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/admin_dashboard.png)
+
+## School List
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/schools_list.png)
+
+## School Admin Dashboard
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/school_admin_dashboard.png)
+
+## Student Dashboard
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/student_dashboard.png)
+
+## Request Enrollment Page
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/batches_available.png)
+
+## Classmate Progress Card Page
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/progress_card.png)
+
