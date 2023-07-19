@@ -37,4 +37,4 @@ This creates 2 default users in system.
 ## Screenshots
 
 ### Login Screen
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/pratikganvir/learning_management_system/blob/main/Screenshots/login_page.png)
