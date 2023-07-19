@@ -31,7 +31,14 @@ This creates 2 default users in system.
 1. Super admin: (email: super_admin@testlms.com, password: test123)
 2. School admin: (email: school_admin@testlms.com, password: test123)
 
-##API Postman Collection:
+## API Postman Collection:
+https://github.com/pratikganvir/learning_management_system/blob/main/LMS_postman_collection.json
+
+API requires below headers in request:
+1. username: admin
+2. password: admin123
+
+This API username and password can be changed from config/api_credentials.rb
 
 
 ## Screenshots
