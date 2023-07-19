@@ -40,6 +40,14 @@ class BatchPolicy
     school_admin?
   end
 
+  def add_courses?
+    school_admin?
+  end
+
+  def create_courses?
+    school_admin?
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

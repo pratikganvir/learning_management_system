@@ -14,8 +14,8 @@ class AdminsController < ApplicationController
 
   # GET /admins/new
   def new
-    authorize @admin
     @admin = Admin.new
+    authorize @admin
     @admin.build_login
   end
 

@@ -33,13 +33,14 @@ class Student < ApplicationRecord
     end
 
     def classmates
-        Student.where(id: Enrollment.where(batch_id: current_batch.id).where.not(student_id: id).pluck(:student_id))
+        Student.where(id: Enrollment.where(batch_id: current_batch.id).where.not(student_id: id).pluck(:student_id)) if current_batch
     end
 
     private
 
+    #Student should be atleast 3 years old
     def student_age
-        if (Date.today - date_of_birth) < 1095
+        if date_of_birth && ((Date.today - date_of_birth) < 1095)
             errors.add(:base, 'Student must be atleast 3 Years old')
         end
     end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 include AuthHelper
 
-  RSpec.describe StudentsController, type: :controller do
+RSpec.describe StudentsController, type: :controller do
 
     before do
         FactoryBot.create(:login, :with_super_admin)

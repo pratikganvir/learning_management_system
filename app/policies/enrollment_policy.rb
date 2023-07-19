@@ -12,6 +12,10 @@ class EnrollmentPolicy
     @user.admin? && @user.loginable.school_admin?
   end
 
+  def super_admin?
+    @user.admin? && @user.loginable.super_admin?
+  end
+
   def index?
     school_admin?
   end
@@ -41,7 +45,7 @@ class EnrollmentPolicy
   end
 
   def enrollment_verdict?
-    school_admin?
+    super_admin? || school_admin?
   end
 
   class Scope

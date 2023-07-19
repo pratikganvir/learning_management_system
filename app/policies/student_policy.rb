@@ -12,6 +12,10 @@ class StudentPolicy
     @user.admin? && @user.loginable.school_admin?
   end
 
+  def super_admin?
+    @user.admin? && @user.loginable.super_admin?
+  end
+
   def index?
     school_admin?
   end
@@ -45,7 +49,7 @@ class StudentPolicy
   end
 
   def request_enrollment?
-    @user.student?
+    super_admin? || @user.student?
   end
 
   def classmates?

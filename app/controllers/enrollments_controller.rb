@@ -61,13 +61,15 @@ class EnrollmentsController < ApplicationController
     end
   end
 
+
+  #This action approves or denies enrollment request. It simply updates status column of enrollments table
   def enrollment_verdict
     @enrollment.status = enrollment_verdict_params[:enrollment_action]
 
     respond_to do |format|
       if @enrollment.save
         format.html { redirect_to school_batch_enrollments_path(@school, @batch), notice: "Enrollment was successfully updated." }
-        format.json { render :show, status: :ok, location: @enrollment }
+        format.json { render :enrollment_verdict, status: :ok, location: school_batch_enrollments_path(@school, @batch) }
       else
         format.html { redirect_to school_batch_enrollments_path(@school, @batch), notice: @enrollment.errors.full_messages.join }
         format.json { render json: @enrollment.errors, status: :unprocessable_entity }

@@ -1,22 +1,22 @@
-<h1>Welcome To Test LMS System</h1>
-
-<% if current_login.admin? %>
-    <% if current_login.loginable.school_admin? %>
-        <div id="admins">
-            <%= link_to 'Manage Batches', school_batches_path(@school) %>
-            <%= link_to 'Manage Courses', school_courses_path(@school) %>
-            <%= link_to 'Manage Students', school_students_path(@school) %>
-        </div>
-    <% else %>
-        <div id="admins">
-        <%= link_to 'Manage Schools', schools_path %>
-        <br/>
-        <%= link_to 'Manage School Admins', admins_path %>
-        </div>
-    <% end %>
-<% elsif current_login.student? %>
-  <div id="admins">
-    <%= link_to 'Request Enrollment', enrollments_school_student_path(@school, @student) %>
-    <%= link_to 'Classmates', classmates_school_student_path(@school, @student) %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <h1>Welcome To Test LMS System</h1>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-sm-3">
+    <% if current_login.admin? %>
+      <% if current_login.loginable.school_admin? %>
+        <p><%= link_to 'Manage Batches', school_batches_path(@school), class: 'btn btn-primary' %></p>
+        <p><%= link_to 'Manage Courses', school_courses_path(@school), class: 'btn btn-primary' %></p>
+        <p><%= link_to 'Manage Students', school_students_path(@school), class: 'btn btn-primary' %></p>
+      <% else %>
+        <p><%= link_to 'Manage Schools', schools_path, class: 'btn btn-primary' %></p>
+        <p><%= link_to 'Manage School Admins', admins_path, class: 'btn btn-primary' %></p>
+      <% end %>
+      <% elsif current_login.student? %>
+        <p><%= link_to 'Request Enrollment', enrollments_school_student_path(@school, @student), class: 'btn btn-primary' %></p>
+        <p><%= link_to 'Classmates', classmates_school_student_path(@school, @student), class: 'btn btn-primary' %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

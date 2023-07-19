@@ -1,14 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Admins</h1>
+<table class="table" id=schools>
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr id="<%= dom_id admin %>">
+         <%= render admin %>
+        <td><%= link_to "Edit", edit_admin_path(admin) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<div id="admins">
-  <% @admins.each do |admin| %>
-    <%= render admin %>
-    <p>
-      <%= link_to "Edit this admin", edit_admin_path(admin) %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New admin", new_admin_path %>
+<%= link_to "New admin", new_admin_path, class: 'btn btn-primary' %>

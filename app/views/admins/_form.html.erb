@@ -11,34 +11,34 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
   <%= form.fields_for :login do |login| %>
-    <div>
+    <div class="form-group">
       <%= login.label :email, style: "display: block" %>
-      <%= login.text_field :email %>
+      <%= login.text_field :email, class: 'form-control' %>
     </div>
 
-    <div>
+    <div class="form-group">
       <%= login.label :password, style: "display: block" %>
-      <%= login.password_field :password %>
+      <%= login.password_field :password, class: 'form-control' %>
     </div>
 
-    <div>
+   <div class="form-group">
       <%= login.label :password_confirmation, style: "display: block" %>
-      <%= login.password_field :password_confirmation %>
+      <%= login.password_field :password_confirmation , class: 'form-control'%>
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>

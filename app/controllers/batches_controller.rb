@@ -30,7 +30,7 @@ class BatchesController < ApplicationController
     respond_to do |format|
       if @batch.save
         format.html { redirect_to school_batch_url(@school,@batch), notice: "Batch was successfully created." }
-        format.json { render :show, status: :created, location: @batch }
+        format.json { render :show, status: :created, location: school_batch_url(@school,@batch) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @batch.errors, status: :unprocessable_entity }

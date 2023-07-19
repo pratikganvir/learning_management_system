@@ -1,18 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Courses</h1>
-
-<div id="courses">
-  <% @courses.each do |course| %>
-    <%= render course %>
-    <p>
-      <%= link_to "Show this course", school_course_path(@school, course) %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <h3>Courses</h3>
+  </div>
 </div>
 
+<table class="table" id=courses>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">School</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @courses.each do |course| %>
+      <tr id="<%= dom_id course %>">
+        <%= render course %>
+        <td><%= link_to "Details", school_course_path(@school, course) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <% if params[:batch_id] %>
-  <%= link_to "Add courses", add_courses_school_batch_path(@school,@batch) %>
+  <%= link_to "Add courses", add_courses_school_batch_path(@school,@batch), class: 'btn btn-primary' %>
 <% else %>
-  <%= link_to "New course", new_school_course_path(@school) %>
+  <%= link_to "New course", new_school_course_path(@school), class: 'btn btn-primary' %>
 <% end %>

@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
+    #Admin user can see all the courses. If Batch id is passed then courses for the specific bath has to be shown
     @courses = if params[:batch_id]
      Course.joins(:batches_courses).where('batches_courses.batch_id' => params[:batch_id])
     else

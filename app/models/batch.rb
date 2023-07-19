@@ -13,6 +13,8 @@ class Batch < ApplicationRecord
     validates :end_date, presence: true
     validates :status, presence: true
 
+
+    #This method adds multiple courses to a batch
     def assign_courses(course_ids)
         batches_courses_association_params = course_ids.map {|course_id| {course_id: course_id } }
         batches_courses.create(batches_courses_association_params)

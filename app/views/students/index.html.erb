@@ -1,17 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Students</h1>
-
-<div id="students">
-  <% @students.each do |student| %>
-    <%= render student %>
-    <p>
-      <%= link_to "Edit", edit_school_student_path(@school, student) %>
-    </p>
-    <p>
-      <%= link_to "Manage Progress Cards", school_student_progress_cards_path(@school,student) %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <h3>Students</h3>
+  </div>
 </div>
 
-<%= link_to "New student", new_school_student_path(@school) %>
+<table class="table" id=students>
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Date Of Birth</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @students.each do |student| %>
+      <tr id="<%= dom_id student %>">
+        <%= render student %>
+        <td><%= link_to "Edit", edit_school_student_path(@school, student) %></td>
+        <td><%= link_to "Manage Progress Cards", school_student_progress_cards_path(@school,student) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to "New student", new_school_student_path(@school), class: 'btn btn-primary' %>

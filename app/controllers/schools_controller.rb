@@ -3,7 +3,11 @@ class SchoolsController < ApplicationController
 
   # GET /schools or /schools.json
   def index
-    @schools = School.where(admin_id: params[:admin_id])
+    @schools = if current_login.admin? && current_login.loginable.school_admin?
+      School.where(admin_id: params[:admin_id])
+    else
+      School.all
+    end
     authorize @schools
   end
 

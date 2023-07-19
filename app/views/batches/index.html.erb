@@ -1,21 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Batches</h1>
-
-<div id="batches">
-  <% @batches.each do |batch| %>
-    <%= render batch %>
-    <p>
-      <%= link_to "Edit this batch", edit_school_batch_path(@school, batch) %> 
-    </p>
-    <p>
-      <%= link_to "Manage Courses", school_courses_path(school_id: @school.id,batch_id: batch.id) %>
-    </p>
-    <p>
-      
-      <%= link_to "Enrollment Requests", school_batch_enrollments_path(@school,batch) %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <h3>Batches</h3>
+  </div>
 </div>
 
-<%= link_to "New batch", new_school_batch_path(@school) %>
+<table class="table" id=batches>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @batches.each do |batch| %>
+      <tr id="<%= dom_id batch %>">
+        <%= render batch %>
+        <td><%= link_to "Edit", edit_school_batch_path(@school, batch) %></td>
+        <td><%= link_to "Manage Course", school_courses_path(school_id: @school.id,batch_id: batch.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New batch", new_school_batch_path(@school), class: 'btn btn-primary' %>

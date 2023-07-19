@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @student.save
         format.html { redirect_to school_student_url(@school, @student), notice: "Student was successfully created." }
-        format.json { render :show, status: :created, location: @student }
+        format.json { render :show, status: :created, location: school_student_url(@school, @student) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @student.errors, status: :unprocessable_entity }
@@ -72,7 +72,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @enrollment_request.save
         format.html { redirect_to enrollments_school_student_path(@school, @student), notice: "Enrollment request succesfully created" }
-        format.json { render :show, status: :created, location: @student }
+        format.json { render :request_enrollment, status: :created, message: "Enrollment request succesfully created" }
       else
         format.html { redirect_to enrollments_school_student_path(@school, @student), notice: @enrollment_request.errors.full_messages.join }
         format.json { render json: @student.errors, status: :unprocessable_entity }

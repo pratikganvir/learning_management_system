@@ -1,5 +1,6 @@
 <h1>Classmates</h1>
 
+<% if @classmates %>
 <table>
   <thead>
   <tr>
@@ -16,3 +17,6 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  You are not enrolled in any batch
+<% end %>
