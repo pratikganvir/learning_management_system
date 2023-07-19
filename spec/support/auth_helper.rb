@@ -3,15 +3,19 @@ require 'spec_helper'
 module AuthHelper
  def login_user(user)
   @request.env["devise.mapping"] = Devise.mappings[:login]
-  user = if user=='super_admin'
+  sign_in user
+ end
+
+ def login_user_role(role)
+  @request.env["devise.mapping"] = Devise.mappings[:login]
+  login = if role=='super_admin'
      create(:login, :with_super_admin)
-  elsif user=='school_admin'
+  elsif role=='school_admin'
     create(:login, :with_school_admin)
-  elsif user=='student'
+  elsif role=='student'
     create(:login, :with_super_admin)
     create(:login, :with_student)
   end
-  # user.confirm # or set a confirmed_at inside the factory. Only      necessary if you are using the "confirmable" module
-  sign_in user
+  sign_in login
  end
 end

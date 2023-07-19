@@ -13,6 +13,7 @@
   <body>
     <p><%= link_to "Sign out", destroy_login_session_path, data: { "turbo-method": :delete } %></p>
     <p><%= link_to "Home", dashboard_home_path %></p>
+    <p><%= flash[:alert] %></p>
     <%= yield %>
   </body>
 </html>

@@ -5,7 +5,7 @@ class BatchesController < ApplicationController
 
   # GET /batches or /batches.json
   def index
-    @batches = Batch.where(school_id: @school.id)
+    @batches = Batch.where(school_id: current_login.loginable.school.try(:id))
     authorize @batches
   end
 

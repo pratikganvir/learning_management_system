@@ -27,7 +27,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     @admin.admin_type = Admin.admin_types['school_admin']
-
+    
     authorize @admin
 
     respond_to do |format|

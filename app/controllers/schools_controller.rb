@@ -3,7 +3,7 @@ class SchoolsController < ApplicationController
 
   # GET /schools or /schools.json
   def index
-    @schools = School.all
+    @schools = School.where(admin_id: params[:admin_id])
     authorize @schools
   end
 

@@ -37,7 +37,7 @@ class AdminPolicy
   end
 
   def destroy?
-    super?
+    false
   end
 
   class Scope

@@ -43,4 +43,5 @@ class Student < ApplicationRecord
             errors.add(:base, 'Student must be atleast 3 Years old')
         end
     end
+    
 end
