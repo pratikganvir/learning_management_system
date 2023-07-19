@@ -1,24 +1,40 @@
-# README
+# Test LMS System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Test LMS System is used by schools to manage courses, enrollments, students, and exam evaluations. It is available through web based portal and json API. 
 
-Things you may want to cover:
+There are 3 types of users in system:
+1. Super admin
+2. School admin
+3. Student
 
-* Ruby version
+## Super Admin
+Super admin can manage schools. Admin can perform create, update, and delete operations on school.
 
-* System dependencies
+## School Admin
+School admin can manage courses, batches, and students. Courses have to be assigned to batches. Once a batch is created admin can mark it as enrollment_open status so student can enroll.
 
-* Configuration
+## Student
 
-* Database creation
+Students are able to make a request to enroll in a batch. Students can also see their classmates and see the progress cards as well.
 
-* Database initialization
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+git clone the repository
 
-* Deployment instructions
+```bash
+bundle install
+rails db:seed
+```
 
-* ...
+This creates 2 default users in system.
+1. Super admin: (email: super_admin@testlms.com, password: test123)
+2. School admin: (email: school_admin@testlms.com, password: test123)
+
+##API Postman Collection:
+
+
+## Screenshots
+
+### Login Screen
+![alt text](http://url/to/img.png)
